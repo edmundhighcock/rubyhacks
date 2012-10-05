@@ -14,15 +14,18 @@ Gem::Specification.new do |s|
   s.email = "edmundhighcock@sourceforge.net"
   s.extra_rdoc_files = [
     "LICENSE.txt",
+    "README.md",
     "README.rdoc"
   ]
   s.files = [
     ".document",
     "Gemfile",
     "LICENSE.txt",
+    "README.md",
     "README.rdoc",
     "Rakefile",
     "lib/rubyhacks.rb",
+    "rubyhacks.gemspec",
     "test/helper.rb",
     "test/test_rubyhacks.rb"
   ]
