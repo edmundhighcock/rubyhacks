@@ -532,7 +532,7 @@ end
 
 module Terminal
 
-	case Config::CONFIG['host']
+	case RbConfig::CONFIG['host']
 	when /i386-apple-darwin/
 		TIOCGWINSZ = 0x40087468 
 		OTHER_TIOCGWINSZ = 0x5413
@@ -1088,7 +1088,7 @@ EOF
 
 	 
 # 	require 'pp' 
-	p Config::CONFIG['host'] 
+	p RbConfig::CONFIG['host'] 
 
 	puts Terminal.terminal_size
 
