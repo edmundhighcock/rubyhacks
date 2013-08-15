@@ -492,6 +492,11 @@ class Array
 	def sum 
 		return inject{|old, new| old + new}
 	end
+
+	def mean
+		return sum/size.to_f
+	end
+
 	def product
 		return inject{|old, new| old * new}
 	end
@@ -625,12 +630,12 @@ class FloatHash < Hash
         end
 	aliold :pretty_inspect
 	def pretty_inspect
-	   "FloatHash.from_hash(#{old_pretty_inspect})"
-        end
+		"FloatHash.from_hash(#{old_pretty_inspect})"
+	end
 	
 	def []=(key, var)
 # 		super(key.to_f, var)
-# 		raise TypeError unless key.kind 
+ 		raise TypeError unless key.kind_of? Numeric
 		old_key = self.find{|k, v| (k-key.to_f).abs < Float::EPSILON}
 		if old_key
 			super(old_key[0].to_f, var)
@@ -642,9 +647,11 @@ class FloatHash < Hash
 	def [](key)
 # # # 		super(key.to_f)
 # 		raise TypeError unless key.class == Float 
-		old_key = self.find{|k, v| (k-key.to_f).abs < Float::EPSILON}
+		#old_key = self.find{|k, v| (k-key.to_f).abs < Float::EPSILON}
+ 		raise TypeError unless key.kind_of? Numeric
+		old_key = self.keys.inject{|o, n| ((o-key).abs < (n-key).abs) ? o : n }
 		if old_key
-			return super(old_key[0])
+			return super(old_key)
 		else 
 			return nil
 		end

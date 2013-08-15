@@ -1,7 +1,12 @@
 require 'helper'
 
 class TestRubyhacks < Test::Unit::TestCase
-  should "probably rename this file and start testing for real" do
-    flunk "hey buddy, you should probably rename this file and start testing for real"
-  end
+	def test_float_hash
+		fh = FloatHash.new
+		fh[0.4325] = 0.2342437
+		fh[0.4232432] = 0.232443
+		assert_equal(0.2342437, fh[0.433])
+		assert_equal(0.2342437, fh[5.0])
+		assert_raise(TypeError){fh['bb'] = 55}
+	end
 end
