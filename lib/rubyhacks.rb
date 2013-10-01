@@ -383,7 +383,7 @@ class String
 	alias :delsubstr :delete_substrings
 
 	def paginate(command = "less")
-		system({"PAGINATE_STRING" => self.gsub(/\n/, "\\n")}, "echo $PAGINATE_STRING | #{command}")
+		system({"PAGINATE_STRING" => self.gsub(/\n/, "\\n").gsub(/\t/, "\\t")}, "echo $PAGINATE_STRING | #{command}")
 	end
 end
 
