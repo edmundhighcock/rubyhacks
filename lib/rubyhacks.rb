@@ -381,6 +381,10 @@ class String
 		new_string
 	end
 	alias :delsubstr :delete_substrings
+
+	def paginate(command = "less")
+		system({"PAGINATE_STRING" => self.gsub(/\n/, "\\n")}, "echo $PAGINATE_STRING | #{command}")
+	end
 end
 
 class TrueClass

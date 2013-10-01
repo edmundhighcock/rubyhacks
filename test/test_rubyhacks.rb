@@ -9,4 +9,7 @@ class TestRubyhacks < Test::Unit::TestCase
 		assert_equal(0.2342437, fh[5.0])
 		assert_raise(TypeError){fh['bb'] = 55}
 	end
+	def test_paginate
+		#File.read(__FILE__).paginate
+	end
 end
