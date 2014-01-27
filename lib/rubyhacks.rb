@@ -566,7 +566,7 @@ module Terminal
 			end
 			return [rows, cols]
 		rescue
-			puts "Warning: TIOCGWINSZ switched in Terminal.terminal_size"
+			#puts "Warning: TIOCGWINSZ switched in Terminal.terminal_size"
 			system_code = OTHER_TIOCGWINSZ 	
 		retry
 		end

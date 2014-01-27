@@ -1,5 +1,5 @@
 require 'helper'
-
+      # test spaces
 class TestRubyhacks < Test::Unit::TestCase
 	def test_float_hash
 		fh = FloatHash.new
